@@ -10,13 +10,20 @@ const TicTacToe = () => {
     Three: { col1: emptyCell, col2: emptyCell, col3: emptyCell }
   }
   const [columnState, setColumnState] = useState(initialGrid)
+  const [isPlayerXTurn, setIsPlayerXTurn] = useState(true)
 
   const cellStyle = { backgroundColor: 'blue', width: 100, height: 100 }
 
-  const handleTurn = (col) => setColumnState(previousState => ({
-    ...previousState,
-    One: { ...previousState.One, [col]:'X' }
-  }))
+  const handleTurn = (col) => setColumnState(previousState => {
+    const state = {
+      ...previousState,
+      One: { ...previousState.One, [col]:  isPlayerXTurn ? 'X' : '0' }
+    }
+
+    setIsPlayerXTurn(!isPlayerXTurn)
+
+    return state
+  })
 
     return (
       <View>

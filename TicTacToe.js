@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { Container, Row, Col } from 'react-grid-system';
 
-function takeTurn() {
-  return 'X'
-}
-
 const TicTacToe = () => {
+  const emptyCell = ' '
   const initialGrid = {
-    One: { col1: null, col2: null, col3: null },
-    Two: { col1: null, col2: null, col3: null },
-    Three: { col1: null, col2: null, col3: null }
+    One: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
+    Two: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
+    Three: { col1: emptyCell, col2: emptyCell, col3: emptyCell }
   }
   const [columnState, setColumnState] = useState(initialGrid)
+
+  const cellStyle = { backgroundColor: 'blue', width: 100, height: 100 }
+
+  const handleTurn = () => setColumnState(previousState => ({
+    ...previousState,
+    One: { ...previousState.One, col1:'X' }
+  }))
 
     return (
       <View>
         <Container>
         <Row>
-          <Col sm={4} onClick={takeTurn}>
-            {columnState['One'].col1}
+          <Col sm={4}>
+              <TouchableOpacity style={cellStyle}
+                onPress={handleTurn}>
+                  <Text>{columnState['One'].col1}</Text>
+              </TouchableOpacity>
           </Col>
           <Col sm={4}>
           {columnState['One'].col2}

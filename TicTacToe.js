@@ -18,10 +18,10 @@ const TicTacToe = () => {
     height: 100
   }
 
-  const handleTurn = (col) => setColumnState(previousState => {
+  const handleTurn = ({row, col }) => setColumnState(previousState => {
     const state = {
       ...previousState,
-      One: { ...previousState.One, [col]:  isPlayerXTurn ? 'X' : '0' }
+      [row]: { ...previousState.One, [col]:  isPlayerXTurn ? 'X' : '0' }
     }
 
     setIsPlayerXTurn(!isPlayerXTurn)
@@ -34,17 +34,17 @@ const TicTacToe = () => {
         <Container>
         <Row>
           <Col>
-            <TouchableOpacity style={cellStyle} onPress={() => handleTurn('col1')}>
+            <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: 'One', col: 'col1' })}>
               <Text>{columnState['One'].col1}</Text>
             </TouchableOpacity>
           </Col>
           <Col>
-            <TouchableOpacity style={cellStyle} onPress={() => handleTurn('col2')}>
+            <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: 'One', col: 'col2' })}>
               <Text>{columnState['One'].col2}</Text>
             </TouchableOpacity>
           </Col>
           <Col>
-            <TouchableOpacity style={cellStyle} onPress={() => handleTurn('col3')}>
+            <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: 'One', col: 'col3' })}>
               <Text>{columnState['One'].col3}</Text>
             </TouchableOpacity>
           </Col>

@@ -18,7 +18,7 @@ const cellValueStyle = {
 }
 
 const Grid = ({ height, width, setCellValue }) => {
-  const initialGrid = Array(height).fill().reduce((prev, _, rowIndex) => ({
+  const initialGridState = Array(height).fill().reduce((prev, _, rowIndex) => ({
     ...prev,
     [rowIndex + 1]: Array(width).fill().reduce((prev, _, colIndex) => ({
       ...prev,
@@ -26,9 +26,9 @@ const Grid = ({ height, width, setCellValue }) => {
     }), {})
   }), {})
 
-  const [columnState, setColumnState] = useState(initialGrid)
+  const [gridState, setGridState] = useState(initialGridState)
 
-  const handleTurn = ({ row, col }) => setColumnState(previousState => {
+  const handleTurn = ({ row, col }) => setGridState(previousState => {
     return {
       ...previousState,
       [row]: { ...previousState[row], [col]:  setCellValue() }
@@ -44,7 +44,7 @@ const Grid = ({ height, width, setCellValue }) => {
               <TouchableOpacity
                 style={cellStyle}
                 onPress={() => handleTurn({ row: rowIndex + 1, col: `col${colIndex + 1}` })}>
-                  <Text style={cellValueStyle}>{columnState[rowIndex + 1][`col${colIndex + 1}`]}</Text>
+                  <Text style={cellValueStyle}>{gridState[rowIndex + 1][`col${colIndex + 1}`]}</Text>
               </TouchableOpacity>
             </Col>
           )}

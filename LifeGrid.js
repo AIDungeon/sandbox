@@ -56,14 +56,15 @@ class LifeGrid  extends React.Component {
           TEST {this.state.grid[0]}
           { 
           
-             this.state.grid.map((rows, colIdx) => {
-                (
-                  <div class="lifeGridColumn">
+            
+             this.state.grid.map((rows, colIdx) => 
+                
+                  <div key={colIdx} class="lifeGridColumn">
                       {rows}
                       {
-                        rows.map( (rowVal, rowIdx) => {
-                          (
-                            <div className="lifeGridRow">
+                        rows.map( (rowVal, rowIdx) => 
+                          
+                            <div  key={rowIdx} className="lifeGridRow">
                               TEST
                             <Button
                               onPress={() => {this.selectCell(colIdx, rowIdx)}}
@@ -71,14 +72,14 @@ class LifeGrid  extends React.Component {
                               color="#AAAAAA"
                             />
                             </div>
-                          )
+                          
 
-                        })
+                        )
                       } 
                   </div> 
-                )
                 
-            })
+                
+            )
           }
 
         </div>

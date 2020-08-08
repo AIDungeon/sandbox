@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Container, Row, Col } from 'react-grid-system';
+import { times } from 'lodash'
 
 const TicTacToe = () => {
   const emptyCell = ' '
+  const gridHeight = 3
+  const gridWith = 3
   const initialGrid = {
-    One: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
-    Two: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
-    Three: { col1: emptyCell, col2: emptyCell, col3: emptyCell }
+    1: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
+    2: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
+    3: { col1: emptyCell, col2: emptyCell, col3: emptyCell }
   }
   const [columnState, setColumnState] = useState(initialGrid)
   const [isPlayerXTurn, setIsPlayerXTurn] = useState(true)
@@ -15,13 +18,15 @@ const TicTacToe = () => {
   const cellStyle = {
     backgroundColor: '#275DAD',
     width: 100,
-    height: 100
+    height: 100,
+    border: '1px solid black',
+    marginBottom: 16
   }
 
   const handleTurn = ({row, col }) => setColumnState(previousState => {
     const state = {
       ...previousState,
-      [row]: { ...previousState.One, [col]:  isPlayerXTurn ? 'X' : '0' }
+      [row]: { ...previousState[row], [col]:  isPlayerXTurn ? 'X' : '0' }
     }
 
     setIsPlayerXTurn(!isPlayerXTurn)
@@ -29,52 +34,23 @@ const TicTacToe = () => {
     return state
   })
 
-    return (
-      <View>
-        <Container>
-        <Row>
-          <Col>
-            <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: 'One', col: 'col1' })}>
-              <Text>{columnState['One'].col1}</Text>
-            </TouchableOpacity>
-          </Col>
-          <Col>
-            <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: 'One', col: 'col2' })}>
-              <Text>{columnState['One'].col2}</Text>
-            </TouchableOpacity>
-          </Col>
-          <Col>
-            <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: 'One', col: 'col3' })}>
-              <Text>{columnState['One'].col3}</Text>
-            </TouchableOpacity>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          {columnState['Two'].col1}
-          </Col>
-          <Col>
-          {columnState['Two'].col2}
-          </Col>
-          <Col>
-          {columnState['Two'].col3}
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          {columnState['Three'].col1}
-          </Col>
-          <Col>
-          {columnState['Three'].col2}
-          </Col>
-          <Col>
-          {columnState['Three'].col3}
-          </Col>
-        </Row>
-        </Container>
-      </View>
-    )
+  return (
+    <View>
+      <Container>
+        {times(gridHeight, (rowIndex) =>
+          <Row key={rowIndex}>
+            {times(gridWith, (colIndex) =>
+              <Col>
+                <TouchableOpacity style={cellStyle} onPress={() => handleTurn({ row: rowIndex + 1, col: `col${colIndex + 1}` })}>
+                  <Text>{columnState[rowIndex + 1][`col${colIndex + 1}`]}</Text>
+                </TouchableOpacity>
+              </Col>
+            )}
+          </Row>
+        )}
+      </Container>
+    </View>
+  )
 }
 
 export default TicTacToe
-

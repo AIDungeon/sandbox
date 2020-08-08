@@ -6,11 +6,14 @@ import { times } from 'lodash'
 const TicTacToe = () => {
   const gridHeight = 3
   const gridWith = 3
-  const initialGrid = {
-    1: { col1: null, col2: null, col3: null },
-    2: { col1: null, col2: null, col3: null },
-    3: { col1: null, col2: null, col3: null }
-  }
+  const initialGrid = Array(gridHeight).fill().reduce((prev, _, rowIndex) => ({
+    ...prev,
+    [rowIndex + 1]: Array(gridWith).fill().reduce((prev, _, colIndex) => ({
+      ...prev,
+      [`col${colIndex+1}`]: null
+    }), {})
+  }), {})
+
   const [columnState, setColumnState] = useState(initialGrid)
   const [isPlayerXTurn, setIsPlayerXTurn] = useState(true)
 

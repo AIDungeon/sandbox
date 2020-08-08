@@ -11,6 +11,12 @@ const cellStyle = {
   marginBottom: 16
 }
 
+const cellValueStyle = {
+  fontSize: 64,
+  fontFamily: 'cursive',
+  alignSelf: 'center'
+}
+
 const Grid = ({ height, width, setCellValue }) => {
   const initialGrid = Array(height).fill().reduce((prev, _, rowIndex) => ({
     ...prev,
@@ -38,7 +44,7 @@ const Grid = ({ height, width, setCellValue }) => {
               <TouchableOpacity
                 style={cellStyle}
                 onPress={() => handleTurn({ row: rowIndex + 1, col: `col${colIndex + 1}` })}>
-                  <Text>{columnState[rowIndex + 1][`col${colIndex + 1}`]}</Text>
+                  <Text style={cellValueStyle}>{columnState[rowIndex + 1][`col${colIndex + 1}`]}</Text>
               </TouchableOpacity>
             </Col>
           )}

@@ -27,7 +27,15 @@
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0",
-    "metro": "^0.61.0"
+    "husky": "^4.2.5",
+    "metro": "^0.61.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
   },
-  "private": true
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }

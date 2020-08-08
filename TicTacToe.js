@@ -4,13 +4,12 @@ import { Container, Row, Col } from 'react-grid-system';
 import { times } from 'lodash'
 
 const TicTacToe = () => {
-  const emptyCell = ' '
   const gridHeight = 3
   const gridWith = 3
   const initialGrid = {
-    1: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
-    2: { col1: emptyCell, col2: emptyCell, col3: emptyCell },
-    3: { col1: emptyCell, col2: emptyCell, col3: emptyCell }
+    1: { col1: null, col2: null, col3: null },
+    2: { col1: null, col2: null, col3: null },
+    3: { col1: null, col2: null, col3: null }
   }
   const [columnState, setColumnState] = useState(initialGrid)
   const [isPlayerXTurn, setIsPlayerXTurn] = useState(true)

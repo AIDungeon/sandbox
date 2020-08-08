@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import LifeGrid from './LifeGrid.js'
 
 const Life = () => {
     return (
         <View>
-          <Text>Open up Life.js to start working on your game!</Text>
+          <LifeGrid />
         </View>
     )
 }

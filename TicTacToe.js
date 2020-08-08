@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import { Container, Row, Col } from 'react-grid-system';
+import React, { useState } from 'react'
+import { View } from 'react-native'
+import { Container } from 'react-grid-system'
 
 import Grid from './Grid'
 

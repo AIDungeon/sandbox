@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react'
+import { View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TicTacToe from './TicTacToe.js'
 import Life from './Life.js'
 

@@ -12,7 +12,11 @@ const TicTacToe = () => {
   const [columnState, setColumnState] = useState(initialGrid)
   const [isPlayerXTurn, setIsPlayerXTurn] = useState(true)
 
-  const cellStyle = { backgroundColor: 'blue', width: 100, height: 100 }
+  const cellStyle = {
+    backgroundColor: '#275DAD',
+    width: 100,
+    height: 100
+  }
 
   const handleTurn = (col) => setColumnState(previousState => {
     const state = {
@@ -29,41 +33,41 @@ const TicTacToe = () => {
       <View>
         <Container>
         <Row>
-          <Col sm={4}>
+          <Col>
             <TouchableOpacity style={cellStyle} onPress={() => handleTurn('col1')}>
               <Text>{columnState['One'].col1}</Text>
             </TouchableOpacity>
           </Col>
-          <Col sm={4}>
+          <Col>
             <TouchableOpacity style={cellStyle} onPress={() => handleTurn('col2')}>
               <Text>{columnState['One'].col2}</Text>
             </TouchableOpacity>
           </Col>
-          <Col sm={4}>
+          <Col>
             <TouchableOpacity style={cellStyle} onPress={() => handleTurn('col3')}>
               <Text>{columnState['One'].col3}</Text>
             </TouchableOpacity>
           </Col>
         </Row>
         <Row>
-          <Col sm={4}>
+          <Col>
           {columnState['Two'].col1}
           </Col>
-          <Col sm={4}>
+          <Col>
           {columnState['Two'].col2}
           </Col>
-          <Col sm={4}>
+          <Col>
           {columnState['Two'].col3}
           </Col>
         </Row>
         <Row>
-          <Col sm={4}>
+          <Col>
           {columnState['Three'].col1}
           </Col>
-          <Col sm={4}>
+          <Col>
           {columnState['Three'].col2}
           </Col>
-          <Col sm={4}>
+          <Col>
           {columnState['Three'].col3}
           </Col>
         </Row>

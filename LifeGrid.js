@@ -16,8 +16,11 @@ class LifeGrid  extends React.Component {
   constructor(props) {
     super(props)
 
+    
+
     this.state = {
-      grid: []
+      grid: [],
+      cellWidth: 240
     }
   }
 
@@ -52,24 +55,20 @@ class LifeGrid  extends React.Component {
 
     render () {
         return (
-        <div className="lifeGrid">
-          TEST {this.state.grid[0]}
+        <div className="lifeGrid" style={{display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
           { 
-          
-            
              this.state.grid.map((rows, colIdx) => 
                 
-                  <div key={colIdx} class="lifeGridColumn">
-                      {rows}
+                  <div key={colIdx} className="lifeGridColumn " style={{width: this.state.cellWidth + "px", flex: 1, flexDirection: 'row'}}>
                       {
                         rows.map( (rowVal, rowIdx) => 
                           
-                            <div  key={rowIdx} className="lifeGridRow">
-                              TEST
+                            <div  key={rowIdx} className="lifeGridRow" style={{width: this.state.cellWidth + "px", flex: 1}}>
                             <Button
                               onPress={() => {this.selectCell(colIdx, rowIdx)}}
                               title={"Cell: (" + colIdx + ", " + rowIdx + ")"}
                               color="#AAAAAA"
+                              style={{width: this.state.cellWidth + "px", height: this.state.cellWidth + "px"}}
                             />
                             </div>
                           

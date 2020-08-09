@@ -10,10 +10,17 @@ const Life = () => {
 
   const [gridState, setGridState] = useState(initializeGrid({ height, width }))
 
+  function handleTurn({ row, col }) {
+    return setGridState(previousState => ({
+      ...previousState,
+      [row]: { ...previousState[row], [col]: '🧬' }
+    }))
+  }
+
   return (
     <View>
       <GridContext.Provider value={gridState}>
-        <Grid handleTurn={() => {}} height={height} width={width} />
+        <Grid handleTurn={handleTurn} height={height} width={width} />
       </GridContext.Provider>
     </View>
   )

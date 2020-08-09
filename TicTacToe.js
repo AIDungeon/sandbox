@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { Container } from 'react-grid-system'
-import { forEach, every } from 'lodash'
+import { chunk, every, reduce, includes } from 'lodash'
 
 import Grid, { initializeGrid } from './Grid'
 import { GridContext } from './App'
@@ -37,18 +37,16 @@ const TicTacToe = () => {
   })
 
   function checkForThreeInARow(grid) {
-    let xThreeInARow = false
-    let oThreeInARow = false
+    const flattenedBoardState = reduce(
+      grid,
+      (prev, row) => [...prev, ...reduce(row, (prev, column) => [...prev, column], [])],
+      []
+    )
+    const rows = chunk(flattenedBoardState, width)
 
-    forEach(grid, row => {
-      const xColumnWin = every(row, _ => _ === xPlayer)
-      const oColumnWin = every(row, _ => _ === oPlayer)
-      if (xColumnWin) xThreeInARow = true
-      if (oColumnWin) oThreeInARow = true
-    })
-
-    if (xThreeInARow) return xPlayer
-    if (oThreeInARow) return oPlayer
+    for (const row of rows) {
+      if (every(row) && !includes(row, null)) return row[0]
+    }
   }
 
   return (

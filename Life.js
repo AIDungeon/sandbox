@@ -9,8 +9,11 @@ const Life = () => {
   const width = 10
 
   const [gridState, setGridState] = useState(initializeGrid({ height, width }))
+  const [gameHasStarted, setGameStarted] = useState(false)
 
-  function handleTurn({ row, col }) {
+  function seedBoard({ row, col }) {
+    if (gameHasStarted) return
+
     return setGridState(previousState => ({
       ...previousState,
       [row]: { ...previousState[row], [col]: '🧬' }
@@ -19,13 +22,19 @@ const Life = () => {
 
   function clearBoard() {
     setGridState(initializeGrid({ height, width }))
+    setGameStarted(false)
+  }
+
+  function beginGame() {
+    setGameStarted(true)
   }
 
   return (
     <View>
       <GridContext.Provider value={gridState}>
-        <Grid handleTurn={handleTurn} height={height} width={width} />
+        <Grid handleTurn={seedBoard} height={height} width={width} />
         <Button onPress={clearBoard} title="Start over" />
+        <Button onPress={beginGame} title="Begin game" />
       </GridContext.Provider>
     </View>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { Container } from 'react-grid-system'
 
@@ -15,20 +15,10 @@ const TicTacToe = () => {
   const [winningPlayer, setWinningPlayer] = useState(null)
 
   function handleTurn({ row, col }) {
-    const currentGrid = setGridState(previousState => ({
+    return setGridState(previousState => ({
       ...previousState,
       [row]: { ...previousState[row], [col]: playTurn() }
     }))
-
-    const winningPlayer = checkForThreeInARow(currentGrid)
-    if (winningPlayer) setWinningPlayer(winningPlayer)
-
-    return currentGrid
-  }
-
-  function checkForThreeInARow(grid) {
-    let winner = null
-    return winner
   }
 
   function playTurn() {
@@ -36,6 +26,18 @@ const TicTacToe = () => {
     setIsPlayerXTurn(!isPlayerXTurn)
 
     return previsPlayerXTurn ? 'X' : 'O'
+  }
+
+  useEffect(() => {
+    const winningPlayer = checkForThreeInARow(gridState)
+    if (!winningPlayer) return
+
+    setWinningPlayer(winningPlayer)
+  })
+
+  function checkForThreeInARow(grid) {
+    let winner = null
+    return winner
   }
 
   return (

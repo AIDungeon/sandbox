@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
-import { Container } from 'react-grid-system'
 import { chunk, every, reduce, includes } from 'lodash'
 
 import Grid, { initializeGrid } from './Grid'
@@ -51,15 +50,13 @@ const TicTacToe = () => {
 
   return (
     <View>
-      <Container>
-        <GridContext.Provider value={gridState}>
-          {winningPlayer ? (
-            `${winningPlayer} has won the game!`
-          ) : (
-            <Grid handleTurn={handleTurn} height={height} width={width} />
-          )}
-        </GridContext.Provider>
-      </Container>
+      <GridContext.Provider value={gridState}>
+        {winningPlayer ? (
+          `${winningPlayer} has won the game!`
+        ) : (
+          <Grid handleTurn={handleTurn} height={height} width={width} />
+        )}
+      </GridContext.Provider>
     </View>
   )
 }

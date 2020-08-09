@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 import { Row, Col } from 'react-grid-system'
 import { times } from 'lodash'
+import { Container } from 'react-grid-system'
 
 import { GridContext } from './App'
 
@@ -23,7 +24,7 @@ const Grid = ({ height, width, handleTurn }) => {
   const onGridCellPress = ({ row, col }) => handleTurn({ row, col })
 
   return (
-    <>
+    <Container>
       <GridContext.Consumer>
         {gridState =>
           times(height, rowIndex => (
@@ -45,7 +46,7 @@ const Grid = ({ height, width, handleTurn }) => {
           ))
         }
       </GridContext.Consumer>
-    </>
+    </Container>
   )
 }
 

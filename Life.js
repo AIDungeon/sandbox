@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
-import { Container } from 'react-grid-system'
 
 import Grid, { initializeGrid } from './Grid'
 import { GridContext } from './App'
@@ -13,11 +12,9 @@ const Life = () => {
 
   return (
     <View>
-      <Container>
-        <GridContext.Provider value={gridState}>
-          <Grid handleTurn={() => {}} height={height} width={width} />
-        </GridContext.Provider>
-      </Container>
+      <GridContext.Provider value={gridState}>
+        <Grid handleTurn={() => {}} height={height} width={width} />
+      </GridContext.Provider>
     </View>
   )
 }

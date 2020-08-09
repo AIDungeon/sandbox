@@ -62,17 +62,31 @@ class LifeGrid  extends React.Component {
     evolve() {
       let replacementGrid = [this.state.grid.length];
       for (let colIdx = 0; colIdx < this.state.grid.length; colIdx++) {
-          replacementGrid[colIdx] = [this.state.grid[colIdx].length];//making no assumptions here as to whether or not its a square
+          replacementGrid[colIdx] = [this.state.grid[colIdx].length];
           for (let rowIdx = 0; rowIdx < this.state.grid[colIdx].length; rowIdx++) {
             let isAliveCurrently =  this.state.grid[colIdx][rowIdx];
 
-            let orthogonalLeft  = colIdx == 0 ? 0:this.state.grid[colIdx-1][rowIdx];
-            let orthogonalRight = colIdx == this.state.grid.length - 1 ? 0: this.state.grid[colIdx+1][rowIdx];
-            let orthogonalAbove  = rowIdx == 0 ? 0:this.state.grid[colIdx][rowIdx-1];
-            let orthogonalBelow = colIdx == this.state.grid[colIdx].length - 1 ? 0:this.state.grid[colIdx][rowIdx+1];
+            let maxCol = this.state.grid.length - 1;
+            let maxRowInCol = this.state.grid[colIdx].length - 1;
+
+            //grab from the far side to make infinite
+            let leftIdx = colIdx == 0 ? maxCol : colIdx-1;
+            let rightIdx = colIdx == maxCol ? 0 : colIdx+1;
+            let aboveIdx = rowIdx == 0 ? maxRowInCol : rowIdx - 1;
+            let belowIdx = rowIdx == maxRowInCol ? 0 : rowIdx + 1;
+
+            let left  = this.state.grid[leftIdx][rowIdx];
+            let right = this.state.grid[rightIdx][rowIdx];
+            let above  = this.state.grid[colIdx][aboveIdx];
+            let below = this.state.grid[colIdx][belowIdx];
+            let aboveLeft = this.state.grid[left][aboveIdx];
+            let aboveRight = this.state.grid[left][aboveIdx];
+            let belowLeft = this.state.grid[right][belowIdx];
+            let belowRight = this.state.grid[right][belowIdx];
 
 
-            let livingNeighborsCount = orthogonalLeft + orthogonalRight + orthogonalAbove + orthogonalBelow;
+
+            let livingNeighborsCount = left + right + above + below + aboveLeft + aboveRight + belowLeft + belowRight;
             
 
             if(isAliveCurrently) {

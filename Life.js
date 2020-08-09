@@ -5,7 +5,8 @@ import LifeGrid from './LifeGrid.js'
 const Life = () => {
     return (
         <View>
-          <LifeGrid columns="3" rows="3" />
+          {/* TODO: Grid Size should be configurable on board reset  */}
+          <LifeGrid gridSize="10" evolveIntervalInMilliseconds="1000" /> 
         </View>
     )
 }

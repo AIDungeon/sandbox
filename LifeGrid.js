@@ -20,7 +20,7 @@ class LifeGrid  extends React.Component {
 
     this.state = {
       grid: [],
-      cellWidth: 240
+      cellWidth: 6
     }
   }
 
@@ -37,20 +37,42 @@ class LifeGrid  extends React.Component {
     }
 
     componentDidMount() {
+
+      let columns = this.props.gridSize;
+      let rows = this.props.gridSize;
   
-      let testLabel = "(x:"+this.props.columns+",y:"+this.props.rows+")";
-      console.log("Component mounted with Selected " + testLabel);
-      let replacementGrid = [this.props.columns];
+
+    
+      let replacementGrid = [columns];
 
   
-      for (let colIdx = 0; colIdx < this.props.columns; colIdx++) {
-          replacementGrid[colIdx] = [this.props.rows.length];
-          for (let rowIdx = 0; rowIdx < this.props.rows; rowIdx++) {
-            replacementGrid[colIdx][rowIdx] = testLabel;
-  
+      for (let colIdx = 0; colIdx < columns; colIdx++) {
+          replacementGrid[colIdx] = [rows];
+          for (let rowIdx = 0; rowIdx < rows; rowIdx++) {
+            let isAlive =  Math.random() < 0.5;//1 is alive, 0 is dead.
+            replacementGrid[colIdx][rowIdx] = isAlive;
+            
           }
       }   
       this.setState({grid: replacementGrid})
+
+      setInterval(() => this.evolve(), this.props.evolveIntervalInMilliseconds);//TODO: probably need to validate this to some min...
+    }
+
+    evolve() {
+      let replacementGrid = [this.state.grid.length];
+      for (let colIdx = 0; colIdx < this.state.grid.length; colIdx++) {
+          replacementGrid[colIdx] = [this.state.grid[colIdx].length];//making no assumptions here as to whether or not its a square
+          for (let rowIdx = 0; rowIdx < this.state.grid[colIdx].length; rowIdx++) {
+            let isAliveCurrently =  this.state.grid[colIdx][rowIdx];
+            // let livingNeighborsCount = ;
+            // let deadNeighborsCount = ; // todo: actual rules
+            replacementGrid[colIdx][rowIdx] = !isAliveCurrently;
+            
+          }
+      }   
+      this.setState({grid: replacementGrid})
+
     }
 
     render () {
@@ -63,14 +85,15 @@ class LifeGrid  extends React.Component {
                       {
                         rows.map( (rowVal, rowIdx) => 
                           
-                            <div  key={rowIdx} className="lifeGridRow" style={{width: this.state.cellWidth + "px", flex: 1}}>
+                            <View  key={rowIdx} className="lifeGridRow" style={{width: this.state.cellWidth + "px",height: this.state.cellWidth + "px"}}>
                             <Button
                               onPress={() => {this.selectCell(colIdx, rowIdx)}}
-                              title={"Cell: (" + colIdx + ", " + rowIdx + ")"}
-                              color="#AAAAAA"
-                              style={{width: this.state.cellWidth + "px", height: this.state.cellWidth + "px"}}
+                              color={this.state.grid[colIdx][rowIdx]?"#aec6cf":"#ff6961"}
+                              width={this.state.cellWidth}
+                              hegiht={this.state.cellWidth}
+                              style={{width: this.state.cellWidth + "px", height: this.state.cellWidth + "px", flex: 1}}
                             />
-                            </div>
+                            </View>
                           
 
                         )

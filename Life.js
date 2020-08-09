@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
+import { View, Button } from 'react-native'
 
 import Grid, { initializeGrid } from './Grid'
 import { GridContext } from './App'
@@ -17,10 +17,15 @@ const Life = () => {
     }))
   }
 
+  function clearBoard() {
+    setGridState(initializeGrid({ height, width }))
+  }
+
   return (
     <View>
       <GridContext.Provider value={gridState}>
         <Grid handleTurn={handleTurn} height={height} width={width} />
+        <Button onPress={clearBoard} title="Start over" />
       </GridContext.Provider>
     </View>
   )

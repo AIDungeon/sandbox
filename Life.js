@@ -1,10 +1,23 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { View } from 'react-native'
+import { Container } from 'react-grid-system'
+
+import Grid, { initializeGrid } from './Grid'
+import { GridContext } from './App'
 
 const Life = () => {
+  const height = 8
+  const width = 8
+
+  const [gridState, setGridState] = useState(initializeGrid({ height, width }))
+
   return (
     <View>
-      <Text>Open up Life.js to start working on your game!</Text>
+      <Container>
+        <GridContext.Provider value={gridState}>
+          <Grid handleTurn={() => {}} height={height} width={width} />
+        </GridContext.Provider>
+      </Container>
     </View>
   )
 }

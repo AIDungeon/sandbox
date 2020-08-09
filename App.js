@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TicTacToe from './TicTacToe.js'
 import Life from './Life.js'
 
+export const GridContext = React.createContext({})
+
 const TicTacToeScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

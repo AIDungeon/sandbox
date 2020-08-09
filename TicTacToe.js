@@ -45,7 +45,7 @@ const TicTacToe = () => {
     const rows = chunk(flattenedBoardState, width)
 
     for (const row of rows) {
-      if (every(row) && !includes(row, null)) return row[0]
+      if (every(row, _ => _ === row[0]) && !includes(row, null)) return row[0]
     }
   }
 

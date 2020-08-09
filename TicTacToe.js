@@ -12,12 +12,23 @@ const TicTacToe = () => {
   const height = 3
   const width = 3
   const [gridState, setGridState] = useState(initializeGrid({ height, width }))
+  const [winningPlayer, setWinningPlayer] = useState(null)
 
   function handleTurn({ row, col }) {
-    return setGridState(previousState => ({
+    const currentGrid = setGridState(previousState => ({
       ...previousState,
       [row]: { ...previousState[row], [col]: playTurn() }
     }))
+
+    const winningPlayer = checkForThreeInARow(currentGrid)
+    if (winningPlayer) setWinningPlayer(winningPlayer)
+
+    return currentGrid
+  }
+
+  function checkForThreeInARow(grid) {
+    let winner = null
+    return winner
   }
 
   function playTurn() {
@@ -31,7 +42,11 @@ const TicTacToe = () => {
     <View>
       <Container>
         <GridContext.Provider value={gridState}>
-          <Grid handleTurn={handleTurn} height={height} width={width} />
+          {winningPlayer ? (
+            `${winningPlayer} has won the game!`
+          ) : (
+            <Grid handleTurn={handleTurn} height={height} width={width} />
+          )}
         </GridContext.Provider>
       </Container>
     </View>

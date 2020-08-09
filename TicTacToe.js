@@ -10,8 +10,8 @@ const TicTacToe = () => {
   const [isPlayerXTurn, setIsPlayerXTurn] = useState(true)
   const height = 3
   const width = 3
-  const playerX = 'X'
-  const playerO = 'O'
+  const xPlayer = 'X'
+  const oPlayer = 'O'
 
   const [gridState, setGridState] = useState(initializeGrid({ height, width }))
   const [winningPlayer, setWinningPlayer] = useState(null)
@@ -26,7 +26,7 @@ const TicTacToe = () => {
   function playTurn() {
     setIsPlayerXTurn(!isPlayerXTurn)
 
-    return isPlayerXTurn ? playerX : playerO
+    return isPlayerXTurn ? xPlayer : oPlayer
   }
 
   useEffect(() => {
@@ -38,13 +38,17 @@ const TicTacToe = () => {
 
   function checkForThreeInARow(grid) {
     let xThreeInARow = false
+    let oThreeInARow = false
 
     forEach(grid, row => {
-      const XColumnWin = every(row, _ => _ === playerX)
-      if (XColumnWin) xThreeInARow = true
+      const xColumnWin = every(row, _ => _ === xPlayer)
+      const oColumnWin = every(row, _ => _ === oPlayer)
+      if (xColumnWin) xThreeInARow = true
+      if (oColumnWin) oThreeInARow = true
     })
 
-    if (xThreeInARow) return playerX
+    if (xThreeInARow) return xPlayer
+    if (oThreeInARow) return oPlayer
   }
 
   return (

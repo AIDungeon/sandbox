@@ -29,8 +29,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="TicTacToe" component={TicTacToeScreen} />
         <Tab.Screen name="Life" component={LifeScreen} />
+        <Tab.Screen name="TicTacToe" component={TicTacToeScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   )

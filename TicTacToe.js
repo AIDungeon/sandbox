@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { Container } from 'react-grid-system'
 
-import { initializeGrid } from './Grid'
-
-import Grid from './Grid'
+import Grid, { initializeGrid } from './Grid'
 import { GridContext } from './App'
 
 const TicTacToe = () => {
@@ -35,10 +33,7 @@ const TicTacToe = () => {
     setWinningPlayer(winningPlayer)
   })
 
-  function checkForThreeInARow(grid) {
-    let winner = null
-    return winner
-  }
+  function checkForThreeInARow(grid) {}
 
   return (
     <View>

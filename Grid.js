@@ -8,14 +8,14 @@ import { GridContext } from './App'
 
 const cellStyle = {
   backgroundColor: '#275DAD',
-  width: 88,
-  height: 88,
+  width: 72,
+  height: 72,
   border: '1px solid black',
   marginBottom: 16
 }
 
 const cellValueStyle = {
-  fontSize: 64,
+  fontSize: 48,
   fontFamily: 'cursive',
   alignSelf: 'center'
 }

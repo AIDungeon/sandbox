@@ -5,8 +5,8 @@ import Grid, { initializeGrid } from './Grid'
 import { GridContext } from './App'
 
 const Life = () => {
-  const height = 8
-  const width = 8
+  const height = 10
+  const width = 10
 
   const [gridState, setGridState] = useState(initializeGrid({ height, width }))
 

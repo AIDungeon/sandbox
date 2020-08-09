@@ -7,8 +7,8 @@ import { GridContext } from './App'
 
 const cellStyle = {
   backgroundColor: '#275DAD',
-  width: 100,
-  height: 100,
+  width: 88,
+  height: 88,
   border: '1px solid black',
   marginBottom: 16
 }

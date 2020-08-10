@@ -119,16 +119,7 @@ class LifeGrid  extends React.Component {
                       {
                         rows.map( (rowVal, rowIdx) => 
                           
-                            <View  key={rowIdx} style={{width: this.state.cellWidth + "px",height: this.state.cellWidth + "px"}}>
-                            <Button
-                              onPress={() => {this.selectCell(colIdx, rowIdx)}}
-                              color={this.state.grid[colIdx][rowIdx]?"#aec6cf":"#ff6961"}
-                              width={this.state.cellWidth}
-                              hegiht={this.state.cellWidth}
-                              style={{width: this.state.cellWidth + "px", height: this.state.cellWidth + "px", flex: 1}}
-                            />
-                            </View>
-                          
+                            <div  key={rowIdx} style={{width: this.state.cellWidth + "px",height: this.state.cellWidth + "px", backgroundColor: this.state.grid[colIdx][rowIdx]?"#aec6cf":"#ff6961"}} />
 
                         )
                       } 

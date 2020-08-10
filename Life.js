@@ -8,7 +8,7 @@ const Life = () => {
           {/* TODO: Grid Size should be configurable on board reset.
               TODO: It's laggy , see if we can speed things up.
           */}
-          <LifeGrid gridSize="50" evolveIntervalInMilliseconds="300" /> 
+          <LifeGrid gridSize="50" evolveIntervalInMilliseconds="30" /> 
         </View>
     )
 }

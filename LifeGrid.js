@@ -26,16 +26,6 @@ class LifeGrid  extends React.Component {
 
 
     
-    
-  selectCell(lifeGridColumn, lifeGridRow){
-
-      console.log("Selected (x:"+lifeGridColumn+",y:"+lifeGridRow+")");
-
-      // this.grid[colIdx][rowIdx] = gameState.getActivePlayer();
-      // this.gameState.setNextPlayerAsActive();  
-     
-    }
-
     componentDidMount() {
 
       let columns = this.props.gridSize;
@@ -57,6 +47,18 @@ class LifeGrid  extends React.Component {
       this.setState({grid: replacementGrid})
 
       setInterval(() => this.evolve(), this.props.evolveIntervalInMilliseconds);//TODO: probably need to validate this to some min...
+    }
+
+    //uhh. not sure what the requirement is for clear vs generate. I'm going to assume, that clear is to just kill everything on the board... 
+    clearIt() {
+      let replacementGrid = [this.state.grid.length];
+      for (let colIdx = 0; colIdx < this.state.grid.length; colIdx++) {
+          replacementGrid[colIdx] = [this.state.grid[colIdx].length];
+          for (let rowIdx = 0; rowIdx < this.state.grid[colIdx].length; rowIdx++) {
+            replacementGrid[colIdx][rowIdx] = 0;
+          }
+        }   
+        this.setState({grid: replacementGrid})
     }
 
     evolve() {
@@ -111,6 +113,7 @@ class LifeGrid  extends React.Component {
 
     render () {
         return (
+        <View>
         <div className="lifeGrid" style={{display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
           { 
              this.state.grid.map((rows, colIdx) => 
@@ -130,6 +133,11 @@ class LifeGrid  extends React.Component {
           }
 
         </div>
+        <div>
+          <Button title="Clear Board" onPress={() => this.clearIt()} />
+          <Button title="Generate Random Board" onPress={() => this.componentDidMount()} />
+        </div>
+        </View>
       )
     }
 }

@@ -82,9 +82,10 @@ class LifeGrid  extends React.Component {
             let above  = this.state.grid[colIdx][aboveIdx];
             let below = this.state.grid[colIdx][belowIdx];
             let aboveLeft = this.state.grid[leftIdx][aboveIdx];
-            let aboveRight = this.state.grid[leftIdx][aboveIdx];
-            let belowLeft = this.state.grid[rightIdx][belowIdx];
+            let aboveRight = this.state.grid[rightIdx][aboveIdx];
+            let belowLeft = this.state.grid[leftIdx][belowIdx];
             let belowRight = this.state.grid[rightIdx][belowIdx];
+            
 
 
 

@@ -53,7 +53,7 @@ const TicTacToe = () => {
         </Grid>
       </Grid>
     </div>
-   //TODO: Add another div with a button labeled "Start New Game"
+   //TODO: Add another div with a button labeled "Start New Game" and set the hooks to the method for clearing the board
    //TODO: Javascript method that iterates over the grid and replaces all values with a whitespace character
       </View>)
 }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
+import ReactDOM from 'react-dom';
+import Grid from '@material-ui/core/Grid';
 
 const TicTacToe = () => {
     return (

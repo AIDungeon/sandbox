@@ -64,7 +64,7 @@ const TicTacToe = () => {
         If all cells on the grid are filled and no player has a straight line of three markers then the game is a draw. 
         For more information on the game you can <Link to="https://en.wikipedia.org/wiki/Tic-tac-toe"> read more on Wikipedia.</Link> </Text>
     </div>
-   //TODO: Add another div with a button labeled "Start New Game" and set the hooks to the method for clearing the board
+    <div><Button>Start New Game</Button></div>   //TODO: Set the hook to the method for clearing the board
    //TODO: Javascript method that iterates over the grid and replaces all values with a whitespace character
    //TODO: Place letter method that takes the current cell label variable and sets the value of the variable to the current playerID variable when called
    //TODO: Add a check to the end of the place letter method for a draw: if A1-C3 are all equal to X or O, it's a draw 

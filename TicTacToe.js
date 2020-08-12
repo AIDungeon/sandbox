@@ -57,12 +57,7 @@ const TicTacToe = () => {
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
       </Grid>
-      <Text>Tic tac toe is a fun, simple puzzle game played by two players. 
-        The game is played on an empty 3x3 grid. 
-        Each player takes turns to place their marker (either an X or an O) in an empty cell on the board. 
-        The first player to get three of their markers in a straight line in any direction wins. 
-        If all cells on the grid are filled and no player has a straight line of three markers then the game is a draw. 
-        For more information on the game you can <Link to="https://en.wikipedia.org/wiki/Tic-tac-toe"> read more on Wikipedia.</Link> </Text>
+      <Text> Tic tac toe is a fun, simple puzzle game played by two players. The game is played on an empty 3x3 grid. Each player takes turns to place their marker (either an X or an O) in an empty cell on the board. The first player to get three of their markers in a straight line in any direction wins. If all cells on the grid are filled and no player has a straight line of three markers then the game is a draw.         For more information on the game you can <Link to="https://en.wikipedia.org/wiki/Tic-tac-toe"> read more on Wikipedia.</Link> </Text>
     </div>
     <div><Button>Start New Game</Button></div>   //TODO: Set the hook to the method for clearing the board
    //TODO: Javascript method that iterates over the grid and replaces all values with a whitespace character

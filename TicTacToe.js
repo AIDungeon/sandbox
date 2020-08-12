@@ -53,6 +53,7 @@ const TicTacToe = () => {
         </Grid>
       </Grid>
     </div>
+   //Add another div with a button labeled "Start New Game"
       </View>)
 }
 

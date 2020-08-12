@@ -64,6 +64,7 @@ const TicTacToe = () => {
   //TODO: Add a check to the end of the place letter method for vertical win conditions (if (A1=B1 && B1=C1)|| etc)
   //TODO: Make a single "check for win conditions" method that calls both the horizontal and vertical checks
   //TODO: Add a diagonal win condition check to the "check for win conditions" method (if (A1=B2 && B2=C3) OR (C1=B2 && B2=A3))
+ //TODO: Add a state check after the "check draw" and "check win" methods to see if the game is over, and show a message if it is
       </View>)
 }
 

@@ -54,6 +54,7 @@ const TicTacToe = () => {
       </Grid>
     </div>
    //TODO: Add another div with a button labeled "Start New Game"
+   //TODO: Javascript method that iterates over the grid and replaces all values with a whitespace character
       </View>)
 }
 

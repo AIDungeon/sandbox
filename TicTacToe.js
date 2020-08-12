@@ -25,7 +25,7 @@ const TicTacToe = () => {
     <div className={classes.root}>
       <Grid container spacing={0}>
         <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
+          <Paper className={classes.paper}>xs=3</Paper>//TODO: replace this and all other grid cell values with variables A1-C3
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
@@ -53,7 +53,7 @@ const TicTacToe = () => {
         </Grid>
       </Grid>
     </div>
-   //Add another div with a button labeled "Start New Game"
+   //TODO: Add another div with a button labeled "Start New Game"
       </View>)
 }
 

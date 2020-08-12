@@ -22,32 +22,32 @@ const TicTacToe = () => {
       <View>
         <Text>Open up TicTacToe.js to start working on your game!</Text>
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
+      <Grid container spacing={0}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
       </Grid>

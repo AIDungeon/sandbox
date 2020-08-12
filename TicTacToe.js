@@ -57,6 +57,7 @@ const TicTacToe = () => {
     </div>
    //TODO: Add another div with a button labeled "Start New Game" and set the hooks to the method for clearing the board
    //TODO: Javascript method that iterates over the grid and replaces all values with a whitespace character
+   //TODO: Place letter method that takes the current cell label variable and sets the value of the variable to the current playerID variable when called
       </View>)
 }
 

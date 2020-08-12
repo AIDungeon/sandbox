@@ -22,7 +22,10 @@ const TicTacToe = () => {
   return (
       <View>
         <Text>Click "Player X" or "Player O" to choose your letter, then click a grid cell to play tic-tac-toe! For more info about how to play, check out the bottom of this page.</Text>
-    //TODO: Add a div with two buttons for players labeled "Player X" and "Player O"
+    <div>
+      <Button>Player X</Button>
+      <Button>Player O</Button>
+    </div>
     //TODO: Create a player variable and a method to set it based on clicking "Player X" or "Player O" buttons
     <div className={classes.root}>
       <Grid container spacing={0}>//TODO: Make each grid cell a button with a label of the value variable (whitespace, X, or O) and hooks to a "place letter" method

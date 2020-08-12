@@ -5,11 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const TicTacToe = () => {
-    return (
-      <View>
-        <Text>Open up TicTacToe.js to start working on your game!</Text>
-        const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -18,12 +14,13 @@ const TicTacToe = () => {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-}));
+}))
 
-export default function CenteredGrid() {
-  const classes = useStyles();
-
+const TicTacToe = () => {
+  const classes = useStyles();  
   return (
+      <View>
+        <Text>Open up TicTacToe.js to start working on your game!</Text>
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={3}>
@@ -55,13 +52,7 @@ export default function CenteredGrid() {
         </Grid>
       </Grid>
     </div>
-  );
-}
-
-
-      </View>
-    )
+      </View>)
 }
 
 export default TicTacToe
-

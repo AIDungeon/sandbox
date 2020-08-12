@@ -60,6 +60,9 @@ const TicTacToe = () => {
    //TODO: Place letter method that takes the current cell label variable and sets the value of the variable to the current playerID variable when called
    //TODO: Add a check to the end of the place letter method for a draw: if A1-C3 are all equal to X or O, it's a draw 
     //(NB: Not checking for blanks because equivalency on whitespace characters in JS can cause problems) 
+  //TODO: Add a check to the end of the place letter method for horizontal win conditions (if (A1=A2 && A2=A3) || (B1=B2 && B2=B3) etc)
+  //TODO: Add a check to the end of the place letter method for vertical win conditions (if (A1=B1 && B1=C1)|| etc)
+  
       </View>)
 }
 

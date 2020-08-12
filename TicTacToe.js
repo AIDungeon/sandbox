@@ -62,7 +62,7 @@ const TicTacToe = () => {
     //(NB: Not checking for blanks because equivalency on whitespace characters in JS can cause problems) 
   //TODO: Add a check to the end of the place letter method for horizontal win conditions (if (A1=A2 && A2=A3) || (B1=B2 && B2=B3) etc)
   //TODO: Add a check to the end of the place letter method for vertical win conditions (if (A1=B1 && B1=C1)|| etc)
-  
+  //TODO: Make a single "check for win conditions" method that calls both the horizontal and vertical checks
       </View>)
 }
 

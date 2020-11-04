@@ -1,9 +1,9 @@
 # Sandbox
 The sandbox is used as a simple environment that is set up for developers to start up a small react project easily. Please do not make any changes on this repo unless it will be a default for the sandbox. If interviewing please make a fork of the repo and create a branch, create a pull request when finished and please avoid squashing your commits. 
 
-## Requirements
+## Objectives
 1. Before you run anything in sandbox be sure that you already have [node installed](https://nodejs.org/en/download/) on your system.
-2. Make sure you have an editor ready for Javascript development. We primarily use VSCode, but as long as your IDE has good JS support you should be ready!
+1. Make sure you have an editor ready for Javascript development. We primarily use VSCode, but as long as your IDE has good JS support you should be ready!
 
 ## Getting started
 Take the following steps to get the app running on your local machine.
